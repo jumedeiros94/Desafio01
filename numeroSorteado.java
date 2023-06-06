@@ -22,7 +22,7 @@ public class numeroSorteado {
         int pontos = 0;
         // variável para armazenar os pontos do usuário
 
-        int palpite;
+        int palpite = 0;
         // variável para armazenar o palpite do usuário
 
         boolean continuar = true;
@@ -31,9 +31,10 @@ public class numeroSorteado {
         int tentativas = 10;
         // variável para limitar as tentativas
 
-        System.out.println("----------------------------------");
+
+        System.out.println("----------------------------------------------------");
         System.out.println("Vamos jogar? Tente adivinhar o número que pensei... ");
-        System.out.println("----------------------------------");
+        System.out.println("----------------------------------------------------");
 
         while (continuar) {
             System.out.println("Digite um número de 1 a 100: ");
@@ -51,10 +52,12 @@ public class numeroSorteado {
             }
 
             if (palpite == numero) {
-                pontos += 10; // se o usuário acertar, adicionar 10 pontos
-                System.out.println("Parabéns você acertou!");
+                pontos += 10; // se  o usúario acertar adicionar 10 pontos
+                System.out.println("Parabéns! Você acertou o número e ganhou 10 pontos. ");
+                System.out.println("----------------------------------------------------");
                 continuar = false;
-            } else if (palpite > 0 && palpite < 101) { // se estiver no intervalo válido calcular a diderença
+
+            } else if (palpite > 0 && palpite < 101) { // se estiver no intervalo válido calcular a diferença
                 int diferenca = Math.abs(palpite - numero);
 
                 if (diferenca == 1) {
@@ -62,37 +65,53 @@ public class numeroSorteado {
                     System.out.println("Quase! Você esta muito perto!");
                     if (palpite < numero) {
                         System.out.println("O número é maior que " + palpite);
+                        System.out.println("-------------------------------");
                     } else {
                         System.out.println("O número é menor que " + palpite);
+                        System.out.println("-------------------------------");
                     }
                 } else {
                     pontos -= 1; // se a diferença for maior que 1 subtrair 1 ponto
+
                     System.out.println("Que pena, você errou!");
+                    System.out.println("-------------------------");
                     if (palpite < numero) {
                         System.out.println("O número é maior que " + palpite);
+                        System.out.println("-------------------------------");
+
                     } else {
                         System.out.println("O numero é menor que " + palpite);
+                        System.out.println("-------------------------------");
                     }
                 }
 
-                tentativas --;
+                tentativas--;
 
                 if (tentativas == 0) {
                     System.out.println("Você esgotou suas tentativas. Fim de jogo!");
+                    System.out.println("------------------------------------------");
                     continuar = false;
-                }else {
+                } else {
                     System.out.println("Você ainda tem " + tentativas + " tentativas. ");
+                    System.out.println("----------------------------------------------");
                 }
 
-            }else {
-                    System.out.println("Valor inválido. Fim do jogo!"); // se o número estiver fora do intervalo, encerrar o jogo
-                    continuar = false;
+            } else {
+                System.out.println("----------------------------");
+                System.out.println("Valor inválido! Fim do jogo.");
+                System.out.println("----------------------------");
+                continuar = false;
             }
-        }
+    }
 
-        System.out.println("Sua pontuação final é: " + pontos);
-
-        entrada.close();
+        System.out.println("Obrigada por jogar! Sua pontuação final foi: " + pontos );
+        System.out.println("-------------------------------------------------------");
 
     }
+
 }
+
+
+
+
+
